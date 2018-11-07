@@ -1,8 +1,18 @@
+local my_info = {
+    name = "uridecode",
+    version = "1.0.0",
+    description = "a URI decode lua plugin of WireShark",
+    author = "Jing Ling",
+    repository = "https://github.com/sunnyelf/WireShark_URI_Decode_LUA_Plugin"
+}
+
 local uri_decode = Proto("uri_decode", "Decoded Full HTTP Request URI of ")
 local get_full_uri = Field.new("http.request.full_uri")
 local get_uri = Field.new("http.request.uri")
 local get_method = Field.new("http.request.method")
 local get_segments = Field.new("tcp.segments")
+
+set_plugin_info(my_info)
 
 function decode_char(hex)
     return string.char(tonumber(hex,16))
